@@ -1,0 +1,38 @@
+---
+title: "Decoding"
+author: "Derek Acosta"
+header-includes:
+  - \usepackage{bbm}
+output:
+  pdf_document: default
+---
+  
+## Question 1 [20 points]: Experiment with different combinations of values for the stack size parameter -s and the maximum number of translations -k, until you can no longer obtain any improvements. 
+### How do changes in these parameters affect the resulting log-probabilities?
+| Right | Left | Default | Center | 
+|------:|:-----|---------|:------:| 
+|   12  |  12  |    12   |    12  | 
+|  123  |  123 |   123   |   123  | 
+|    1  |    1 |     1   |     1  | 
+
+### How do they affect speed? 
+### How do they affect the translations?
+
+$$ \begin{table}
+\center
+\begin{tabular}{crrrr}
+& & \multicolumn{3}{c}{\textbf{Translations per phrase}} \\
+& & \textbf{1} & \textbf{10} & \textbf{100} \\
+\hline
+\multirow{5}{*}{\begin{sideways}\textbf{Stack size}\end{sideways}}
+& \textbf{1}   & --1700.33 & --1646.97 & --1646.91 \\
+& \textbf{25}  & --1369.91 & --1310.66 & --1320.42 \\
+& \textbf{50}  & --1369.91 & --1298.37 & --1302.51 \\
+& \textbf{100} & --1369.91 & --1291.52 & --1296.66 \\
+& \textbf{200} & --1369.91 & --1290.17 & \textbf{--1289.35} \\
+\end{tabular}
+\caption{\label{tab:scores}
+Corpus log-probability of decodings given various limits on the number
+of translations per phrase $k$ and the stack size $s$, with the
+reordering limit $r=3$.}
+\end{table} $$
